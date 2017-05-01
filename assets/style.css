@@ -70,16 +70,16 @@ button.list-group-item:hover {
 
 .navbarust{
     background: #f7971e !important; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #f7971e, #ffd200) !important; /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f7971e, #ffd200) !important;
+    background: -webkit-linear-gradient(to right, #cccccc, #cccccc) !important; /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffffff, #cccccc) !important;
 }
 .menumustafa{
     background: #f7971e !important; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #f7971e, #ffd200) !important; /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f7971e, #ffd200) !important;
+    background: -webkit-linear-gradient(to right, #f7971e, #cccccc) !important; /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffffff, #cccccc) !important;
 }
 .login-page{
     background: #000000; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #000000, #434343); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom, #000000, #434343);
+    background: -webkit-linear-gradient(to bottom, #000000, #cccccc); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #ffffff, #cccccc);
 }
