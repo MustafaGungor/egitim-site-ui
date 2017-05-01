@@ -26,7 +26,8 @@ export default class Header extends ShallowComponent {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            data: [],
+            leftPanelState:false
         };
     }
 
@@ -57,7 +58,7 @@ export default class Header extends ShallowComponent {
                                circle
                                width="40"/>
                         <Link to={window.applicationRootPath}>
-                            <Col style={{display: this.props.matches ? "none" : "inherit"}}>Eğitim Portali</Col>
+                            <Col style={{display: this.props.matches ? "none" : "inherit"}} >Eğitim Portali</Col>
                         </Link>
                         <Link to={window.applicationRootPath}>
                             <Col style={{display: this.props.matches ? "inherit" : "none"}}>Robe</Col>
@@ -65,9 +66,9 @@ export default class Header extends ShallowComponent {
                     </Col>
                     <Col className="pull-right">
                         <Button
-                            className="robe-navbar-button">
-                            <FaIcon code="fa-user"/>
-                        </Button>
+                        className="robe-navbar-button">
+                        <FaIcon code="fa-user"/>
+                    </Button>
                         <Button
                             className="robe-navbar-button">
                             <FaIcon code="fa-comments-o"/>

@@ -1,9 +1,10 @@
 import React from "react";
 import ShallowComponent from "robe-react-commons/lib/components/ShallowComponent";
 import SideMenu from "robe-react-ui/lib/sidemenu/SideMenu";
-import Col from "react-bootstrap/lib/Col";
+import SidePanel from "robe-react-ui/lib/sidepanel/SidePanel";
 import Header from "../header/Header";
 import Card from "../card/Card";
+import {Col,Button} from "react-bootstrap";
 
 export default class Workspace extends ShallowComponent {
 
@@ -14,41 +15,60 @@ export default class Workspace extends ShallowComponent {
     constructor(props) {
         super(props);
         this.state = {
-            toggled: false
+            toggled: false,
+            leftPanelState: false,
+            name : "Menü Aç"
         };
     }
 
 
     render() {
-        let toggled = this.state.toggled == false ? 0 : 290;
+        let toggled="";
+        if(this.state.leftPanelState === true){
+            toggled= this.state.toggled == false ? 0 : 290;
+        }else{
+            toggled = this.state.toggled == false ? 0 : 0;
+        }
         return (
             <div >
                 <Header
                     matches={this.state.matches}
                     toggled={this.state.toggled}
-                    onToggle={this.__changeMenu}/>
+                    onToggle={this.__changeMenu}
+                />
+
+                <SidePanel visible={this.state.leftPanelState} position="left">
                 <Col
                     id="sideMenu"
                     style={{width: toggled}}
                     className="side-menu menumustafa">
                     <Card style={{marginLeft: 0}} className="menumustafa">
-                        <SideMenu
+
+                            <SideMenu
                             items={this.props.route.menu}
                             selectedItem={"Dashboard"}
                             onChange={this.__handleChange}/>
+
                     </Card>
                 </Col>
+                </SidePanel>
                 <Col
                     id="content"
                     className="content"
                     style={{height: window.innerHeight - 80, marginLeft: toggled}}
                     onClick={this.__closeMenu}>
+                    <Button md={12} onClick={this.__panelOpen}>{this.state.name}</Button>
                     {this.props.children}
                 </Col>
             </div>
         );
     }
-
+    __panelOpen(){
+        if(this.state.leftPanelState === false)
+            this.setState({leftPanelState:!this.state.leftPanelState,name:"Menü Kapat"})
+        else
+            this.setState({leftPanelState:!this.state.leftPanelState,name:"Menü Aç"})
+    }
     __handleChange = (item) => {
         this.context.router.push(item.module);
     };
